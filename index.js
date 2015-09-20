@@ -39,7 +39,7 @@ function poll (options, fn) {
   })
 
   onError(partial(increment, state.attempt, 1))
-  onData(partial(setTimeout, fetch, options.interval))
+  onData(setTimeout.bind(global, fetch, options.interval))
   onData(partial(state.attempt.set, 0))
 
   state.attempt(filter(Boolean, retry))
