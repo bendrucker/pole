@@ -1,0 +1,38 @@
+{
+  "name": "pole",
+  "main": "index.js",
+  "version": "0.0.0",
+  "description": "Poll for async resources with an evented interface",
+  "license": "MIT",
+  "repository": "bendrucker/pole",
+  "author": {
+    "name": "Ben Drucker",
+    "email": "bvdrucker@gmail.com",
+    "url": "bendrucker.me"
+  },
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "keywords": [
+    "poll",
+    "async",
+    "events"
+  ],
+  "devDependencies": {
+    "tape": "^4.0.0",
+    "standard": "^4.0.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "ap": "~0.2.0",
+    "create-errback": "~1.0.0",
+    "filter-pipe": "~1.0.1",
+    "geval": "~2.1.1",
+    "observ": "~0.2.0",
+    "observ-increment": "~1.0.0",
+    "observ-struct": "~6.0.0",
+    "xtend": "~4.0.0"
+  }
+}
