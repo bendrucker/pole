@@ -23,7 +23,7 @@ test('error retry', function (t) {
   t.plan(5)
 
   var options = {
-    retry: 10
+    retryDelay: 10
   }
 
   var count = poll(options, function (callback) {

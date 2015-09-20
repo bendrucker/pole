@@ -55,12 +55,19 @@ Default: `0`
 
 The interval in milliseconds between successful requests. 
 
-###### retry
+###### retryDelay
 
 Type: `number`  
 Default: `1000`
 
-The interval in milliseconds between retries after failure. Retries are performed using exponential backoff. Given a `retry` interval of `1000`, the first retry will be performed after 1 second, then 2, then 4, etc.
+The interval in milliseconds between retries after failure. Retries are performed using exponential backoff. Given a `retryDelay` of `1000`, the first retry will be performed after 1 second, then 2, then 4, etc.
+
+###### maxRetryDelay
+
+Type: `number`  
+Default: `30000`
+
+The maximum interval in milliseconds between retries.
 
 ###### maxAttempts
 

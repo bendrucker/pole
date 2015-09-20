@@ -8,12 +8,14 @@ var increment = require('observ-increment')
 var partial = require('ap').partial
 var Errback = require('create-errback')
 var filter = require('filter-pipe')
+var smallest = require('smallest')
 
 module.exports = poll
 
 var defaults = {
   interval: 0,
   retryDelay: 1000,
+  maxRetryDelay: 30 * 1000,
   maxAttempts: 5
 }
 
@@ -58,7 +60,7 @@ function poll (options, fn) {
 
   function retry (attempt) {
     if (attempt > options.maxAttempts) return
-    var delay = options.retryDelay * Math.pow(2, attempt)
+    var delay = smallest(options.maxRetryDelay, options.retryDelay * Math.pow(2, attempt))
     setTimeout(fetch, delay)
   }
 
