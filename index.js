@@ -2,7 +2,6 @@
 
 var extend = require('xtend')
 var Event = require('geval/event')
-var Struct = require('observ-struct')
 var Observ = require('observ')
 var increment = require('observ-increment')
 var partial = require('ap').partial
@@ -33,10 +32,10 @@ function poll (options, fn) {
   var onError = ErrorEvent.listen
   var onData = DataEvent.listen
 
-  var state = Struct({
+  var state = {
     canceled: Observ(false),
     attempt: Observ(0)
-  })
+  }
 
   onError(partial(increment, state.attempt, 1))
   onData(setTimeout.bind(global, fetch, options.interval))
