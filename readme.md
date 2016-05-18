@@ -50,10 +50,10 @@ Type: `object`
 
 ###### interval
 
-Type: `number`  
+Type: `number` / `function`  
 Default: `0`
 
-The interval in milliseconds between successful requests. 
+The interval in milliseconds between successful requests. This parameter can optionally be a function that will be called when data arrives and should return the interval as a number.
 
 ###### retryDelay
 

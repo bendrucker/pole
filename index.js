@@ -3,7 +3,9 @@
 var extend = require('xtend')
 var Event = require('geval/event')
 var Observ = require('observ')
+var value = require('observ-value')
 var increment = require('observ-increment')
+var pipe = require('value-pipe')
 var partial = require('ap').partial
 var Errback = require('create-errback')
 var filter = require('filter-pipe')
@@ -38,7 +40,10 @@ function poll (options, fn) {
   }
 
   onError(partial(increment, state.attempt, 1))
-  onData(setTimeout.bind(global, fetch, options.interval))
+  onData(pipe([
+    partial(value, options.interval),
+    setTimeout.bind(global, fetch)
+  ]))
   onData(partial(state.attempt.set, 0))
 
   state.attempt(filter(Boolean, retry))

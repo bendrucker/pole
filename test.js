@@ -36,3 +36,27 @@ test('error retry', function (t) {
     t.equal(err.message, 'error')
   })
 })
+
+test('dynamic interval', function (t) {
+  t.plan(7)
+
+  var options = {
+    interval: function () {
+      t.pass('called for time')
+      return 0.1
+    }
+  }
+
+  var i = 0
+  var count = poll(options, function (callback) {
+    // options.interval called once after cancel
+    if (i > 3) count.cancel()
+    callback(null, i++)
+  })
+
+  count.onData(function () {
+    t.pass('receives data')
+  })
+
+  count.onError(t.end)
+})
