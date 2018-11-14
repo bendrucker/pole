@@ -1,4 +1,4 @@
-# pole [![Build Status](https://travis-ci.org/bendrucker/pole.svg?branch=master)](https://travis-ci.org/bendrucker/pole)
+# pole [![Build Status](https://travis-ci.org/bendrucker/pole.svg?branch=master)](https://travis-ci.org/bendrucker/pole) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/pole.svg)](https://greenkeeper.io/)
 
 > Poll for async resources with an evented interface
 
